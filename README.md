@@ -1,1 +1,1 @@
-# 1.-hafta-ders
+#Nesneye yönelik tasarlama dersi ödev
