@@ -1,25 +1,101 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.10.35122.118
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.Hafta", "2.Hafta\2.Hafta.csproj", "{D7B78AC5-AC79-47CE-89ED-C6F5422785BB}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D7B78AC5-AC79-47CE-89ED-C6F5422785BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D7B78AC5-AC79-47CE-89ED-C6F5422785BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D7B78AC5-AC79-47CE-89ED-C6F5422785BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D7B78AC5-AC79-47CE-89ED-C6F5422785BB}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {100E3A66-20EF-4FA1-B891-9567D021EC4B}
-	EndGlobalSection
-EndGlobal
+//Girilen sayının çift - tek kontrolü (if)
+//1 den 10 a kadar sayıları ekrana yazı değeri olarak yazma işlemi (örn 1 girildiğinde ekrana
+//BİR yazılsın - switch yapısı)
+//Kullanıcı adı admin ve şifre Admin_32453@ olduğunda giriş başarılı değilse başarısız uyarısı
+//veren c# kodu
+//10-20 20-30 30-40 arası sıcaklık durumlarına göre ekrana (normal - sıcak - çok sıcak) uyarısı
+//veren veren c# kodu (if else if else if else yapısı)
+
+
+//Girilen sayının çift - tek kontrolü (if)
+
+Console.WriteLine("Girilen sayının çift - tek kontrolü (if)");
+Console.WriteLine("Bir sayı giriniz:");
+int a =int.Parse(Console.ReadLine());
+if (a % 2 == 0)
+    Console.Write("Çift sayı.");
+else
+    Console.WriteLine("Tek sayı.");
+Console.ReadKey();
+
+//1 den 10 a kadar sayıları ekrana yazı değeri olarak yazma işlemi (örn 1 girildiğinde ekrana
+//BİR yazılsın - switch yapısı)
+Console.WriteLine("1 den 10 a kadar sayıları ekrana yazı değeri olarak yazma işlemi");
+int sayi;
+Console.WriteLine("1'den 10'a kadar olan bir sayıyı giriniz:");
+sayi = int.Parse(Console.ReadLine());
+switch(sayi)
+{
+    case 1: 
+        Console.Write("BİR\n"); 
+        break;
+    case 2: 
+        Console.Write("İKİ\n");
+        break;
+    case 3: 
+        Console.Write("ÜÇ\n");
+        break;
+    case 4: 
+        Console.Write("DÖRT\n");
+        break;
+    case 5: 
+        Console.Write("BEŞ\n");
+        break;
+    case 6: 
+        Console.Write("ALTI\n");
+        break;
+    case 7:
+        Console.Write("YEDİ\n");
+        break;
+    case 8: 
+        Console.Write("SEKİZ\n"); 
+        break;
+    case 9: 
+        Console.Write("DOKUZ\n"); 
+        break;
+    case 10: 
+        Console.Write("ON\n");
+        break;
+    default: 
+        Console.Write("1'den 10'a kadar olacak!\n");
+        break; 
+}
+
+//Kullanıcı adı admin ve şifre Admin_32453@ olduğunda giriş başarılı değilse başarısız uyarısı
+//veren c# kodu
+Console.WriteLine("Kullanıcı adınızı giriniz:");
+string kullanici_adi = Console.ReadLine();
+Console.WriteLine("Şifrenizi giriniz:");
+string sifre = Console.ReadLine();
+
+if (kullanici_adi == "admin")
+{
+    if (sifre == "Admin_32453@")
+        Console.WriteLine("Giriş başarılı");
+    else if (sifre != "Admin_32453@")
+        Console.WriteLine("Şifre veya kullanıcı adı yanlış");
+    else
+        Console.WriteLine("Giriş başarılı");
+}
+else if (kullanici_adi != "admin")
+    Console.WriteLine("Giriş başarısız.");
+else
+    Console.WriteLine("Giriş başarılı");
+
+
+//10-20 20-30 30-40 arası sıcaklık durumlarına göre ekrana (normal - sıcak - çok sıcak) uyarısı
+//veren veren c# kodu (if else if else if else yapısı)
+
+Console.WriteLine("Hava sıcaklığını giriniz:");
+int hava = int.Parse(Console.ReadLine());
+
+if (hava <= 10 && hava < 20)
+    Console.Write("Hava normal");
+else if (hava <= 20 && hava < 30)
+    Console.Write("Hava sıcak");
+else if (hava <= 30 && hava < 40)
+    Console.Write("Hava çok sıcak");
+else
+    Console.WriteLine("Aşırı sıcak");
+
+
