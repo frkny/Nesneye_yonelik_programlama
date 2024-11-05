@@ -1,25 +1,200 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.10.35122.118
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3.Hafta", "3.Hafta\3.Hafta.csproj", "{73450FC8-90B2-4A65-9383-0FD0354BA57D}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{73450FC8-90B2-4A65-9383-0FD0354BA57D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{73450FC8-90B2-4A65-9383-0FD0354BA57D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{73450FC8-90B2-4A65-9383-0FD0354BA57D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{73450FC8-90B2-4A65-9383-0FD0354BA57D}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {F74BA98B-C171-407D-8951-FAE3701BEE21}
-	EndGlobalSection
-EndGlobal
+// See https://aka.ms/new-console-template for more information
+using System.Collections;
+
+//Soru 1 - Foreach Döngüsü ile Liste Elemanlarını Yazdırma
+//Bir ArrayList oluşturun ve içerisine birkaç tamsayı ekleyin. foreach döngüsü kullanarak listedeki
+//her bir sayıyı ekrana yazdıran bir program yazınız.
+//Döngü tamamlandığında sayıların toplamını da ekrana yazdırınız.
+
+//Soru 2 - Hazır Metod Kullanımı 
+//Kullanıcıdan bir cümle girmesini isteyin ve bu cümledeki kelime sayısını hesaplayıp ekrana yazdıran
+//bir program yazınız. Kelime sayısını hesaplamak için Split() metodunu kullanabilirsiniz.
+
+//Soru 3 - ArrayList ile Alfabetik Sıralama 
+//Kullanıcıdan 5 adet isim alarak bir ArrayList içinde saklayın. Daha sonra bu isimleri alfabetik
+//olarak sıralayarak ekrana yazdırın. (Not: ArrayList.Sort() metodunu kullanabilirsiniz.)
+
+//Soru 4 - For Döngüsü ile Fibonacci Serisi 
+//Kullanıcıdan bir sayı girmesini isteyin. Bu sayı kadar Fibonacci serisindeki sayıları hesaplayıp
+//ekrana yazdıran bir program yazınız. for döngüsü kullanarak seriyi oluşturun.
+//Örnek: Eğer kullanıcı 5 girerse, ekranda "0 1 1 2 3" yazmalıdır.
+
+//Soru 5 - While Döngüsü ile Tahmin Oyunu 
+//Kullanıcıdan bir sayı tahmin etmesini isteyen bir program yazınız. Program, doğru tahmin yapılana
+//kadar kullanıcıdan yeni tahminler almaya devam etmelidir. Doğru tahmin yapıldığında ekrana bir tebrik mesajı
+//yazdırılmalıdır.
+//Not: Sabit bir sayı belirleyebilir veya Random sınıfı ile rastgele bir sayı oluşturabilirsiniz.
+
+//Soru 6 - Do While Döngüsü ile Basit Hesap Makinesi
+//Kullanıcıdan işlem türünü (+, -, *, /) ve iki sayı alarak işlemi gerçekleştiren bir program yazınız.
+//Kullanıcı "çıkış" yazana kadar işlemleri tekrarlayan bir do while döngüsü kurunuz.
+//Ekstra: Bölme işlemi sırasında sıfıra bölme hatasını kontrol ediniz.
+
+//Soru 7 - For ve While Döngüsü ile Sayı Toplama Oyunu 
+//Kullanıcıdan pozitif tam sayılar girmesini isteyen bir program yazınız. Kullanıcı "0" girdiğinde girişi
+//sonlandırın ve girilen pozitif sayıların toplamını bir while döngüsü kullanarak hesaplayın.
+//Toplamı bulduktan sonra tüm pozitif sayıları tek tek ekrana yazdırmak için bir for döngüsü kullanınız.
+
+
+//Soru 1 - Foreach Döngüsü ile Liste Elemanlarını Yazdırma
+int[] sayilar = { 1, 35, 13, 47 };
+
+foreach (int i in sayilar)
+{
+    Console.WriteLine(i);
+}
+
+////Soru 2 - Hazır Metod Kullanımı 
+Console.WriteLine("Bir cümle yaz:");
+string cümle = Console.ReadLine();
+
+string[] kelimeler = cümle.Split(' ');
+int kelimeSayisi = kelimeler.Length;
+Console.WriteLine("Girilen cümledeki kelime sayısı: " + kelimeSayisi);
+
+//Soru 3 - ArrayList ile Alfabetik Sıralama 
+ArrayList isimler = new ArrayList();
+
+for (int i = 1; i <= 5; i++)
+{
+    Console.Write($"Lütfen {i}. ismi girin: ");
+    string isim = Console.ReadLine();
+    isimler.Add(isim);
+}
+
+isimler.Sort();
+
+Console.WriteLine("\nAlfabetik sıraya göre isimler:");
+foreach (string isim in isimler)
+{
+    Console.WriteLine(isim);
+}
+
+//Soru 4 - For Döngüsü ile Fibonacci Serisi 
+Console.Write("Kaç terimlik Fibonacci serisi istiyorsunuz?: ");
+int n = int.Parse(Console.ReadLine());
+
+int a = 0, b = 1, c;
+
+Console.Write("Fibonacci Serisi: ");
+
+for (int i = 0; i < n; i++)
+{
+    Console.Write(a + " ");
+    c = a + b;
+    a = b;
+    b = c;
+}
+
+//Soru 5 - While Döngüsü ile Tahmin Oyunu 
+Random rastgele = new Random();
+int dogruSayi = rastgele.Next(1, 101);
+
+int tahmin = 0;
+
+Console.WriteLine("1 ile 100 arasında bir sayı tahmin edin!");
+
+while (tahmin != dogruSayi)
+{
+    Console.Write("Tahmininiz: ");
+    tahmin = int.Parse(Console.ReadLine());
+
+    if (tahmin < dogruSayi)
+    {
+        Console.WriteLine("Daha büyük bir sayı deneyin.");
+    }
+    else if (tahmin > dogruSayi)
+    {
+        Console.WriteLine("Daha küçük bir sayı deneyin.");
+    }
+    else
+    {
+        Console.WriteLine("Tebrikler! Doğru tahmin ettiniz.");
+    }
+}
+
+//Soru 6 - Do While Döngüsü ile Basit Hesap Makinesi
+string islem;
+
+do
+{
+    Console.Write("İşlem türünü seçin (+, -, *, /) veya çıkış yapmak için 'çıkış' yazın: ");
+    islem = Console.ReadLine();
+
+    if (islem == "çıkış")
+        break;
+
+    Console.Write("Birinci sayıyı girin: ");
+    double sayi1 = double.Parse(Console.ReadLine());
+
+    Console.Write("İkinci sayıyı girin: ");
+    double sayi2 = double.Parse(Console.ReadLine());
+
+    switch (islem)
+    {
+        case "+":
+            Console.WriteLine("Sonuç: " + (sayi1 + sayi2));
+            break;
+
+        case "-":
+            Console.WriteLine("Sonuç: " + (sayi1 - sayi2));
+            break;
+
+        case "*":
+            Console.WriteLine("Sonuç: " + (sayi1 * sayi2));
+            break;
+
+        case "/":
+            if (sayi2 == 0)
+            {
+                Console.WriteLine("Hata: Sıfıra bölme işlemi yapılamaz.");
+            }
+            else
+            {
+                Console.WriteLine("Sonuç: " + (sayi1 / sayi2));
+            }
+            break;
+
+        default:
+            Console.WriteLine("Geçersiz işlem türü! Lütfen +, -, * veya / seçin.");
+            break;
+    }
+
+}
+while (islem != "çıkış");
+
+Console.WriteLine("Hesap makinesi kapatıldı.");
+
+//Soru 7 - For ve While Döngüsü ile Sayı Toplama Oyunu 
+List<int> sayilar = new List<int>(); 
+int sayi;
+int toplam = 0;
+
+while (true) 
+{
+    Console.Write("Pozitif bir sayı girin (Çıkmak için 0): ");
+    sayi = int.Parse(Console.ReadLine()); 
+
+    if (sayi == 0) 
+    {
+        break;
+    }
+
+    if (sayi > 0) 
+    {
+        sayilar.Add(sayi); 
+        toplam += sayi;  
+    }
+    else
+    {
+        Console.WriteLine("Lütfen pozitif bir sayı girin.");
+    }
+}
+
+Console.WriteLine("Girilen pozitif sayıların toplamı: " + toplam);
+
+Console.WriteLine("\nGirilen sayılar:");
+for (int i = 0; i < sayilar.Count; i++)
+{
+    Console.WriteLine(sayilar[i]);
+}
