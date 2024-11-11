@@ -1,25 +1,189 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.10.35122.118
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4.Hafta", "4.Hafta\4.Hafta.csproj", "{4B766FF9-A061-42AC-A3DC-01EAF53C2EFD}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4B766FF9-A061-42AC-A3DC-01EAF53C2EFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4B766FF9-A061-42AC-A3DC-01EAF53C2EFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4B766FF9-A061-42AC-A3DC-01EAF53C2EFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4B766FF9-A061-42AC-A3DC-01EAF53C2EFD}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {669B9E1A-346D-4A7A-9E25-6DE3A330241E}
-	EndGlobalSection
-EndGlobal
+﻿using System.Diagnostics.Metrics;
+
+//1.Matematiksel Hesaplama Yapan Parametresiz ve Geriye Değer Döndüren Metot
+
+//Soru: Bir metot yazın; bu metot, kullanıcıdan üçgenin taban uzunluğu ve yüksekliğini alıp, üçgenin
+//alanını hesaplayarak geriye döndürsün. Alanı hesaplamak için Taban * Yükseklik / 2 formülünü kullanın.
+//İpucu: double türünde dönen bir metot tanımlamalı ve kullanıcıdan alınan değerlerle hesaplama yapmalısınız.
+
+//2. Dizideki En Büyük Değeri Bulan Parametreli ve Geriye Değer Döndüren Metot
+//Soru: int türünde bir dizi parametresi alan ve bu dizideki en büyük değeri bulan bir metot yazın.
+//İpucu: int dönen bir metot tanımlayıp, foreach döngüsü ile diziyi dolaşarak en büyük değeri bulabilirsiniz.
+
+//3. Aşırı Yüklenmiş (Overloaded) Metot ile Farklı Türdeki Verilerin Toplamını Bulma
+//Soru: Aynı isimle üç farklı CalculateSum metodu yazın. İlk metot iki int sayıyı toplasın, ikinci metot iki
+//double sayıyı toplasın, üçüncü metot ise üç int sayıyı toplasın.
+//İpucu: Metot isimleri aynı olmalı fakat parametre türleri farklı olmalıdır.
+
+//4. Recursive Metot ile Fibonacci Dizisi Hesaplama
+//Soru: Bir sayının Fibonacci dizisindeki karşılığını hesaplayan özyinelemeli (recursive) bir metot yazın.
+//fibonacci(5) çağrısı, dizideki 5. Fibonacci sayısını döndürmelidir.
+//İpucu: int dönen ve kendini çağırarak Fibonacci dizisi üreten bir metot yazmalısınız.
+
+//5. Params ile Sınırsız Sayıda Parametre Alarak Ortalama Hesaplama
+//Soru: params anahtar kelimesini kullanarak sınırsız sayıda double parametre alabilen ve bu sayılar arasındaki
+//ortalamayı hesaplayan bir metot yazın.
+//İpucu: params ile dizi gibi parametre alabilir ve döngü kullanarak ortalamayı hesaplayabilirsiniz.
+
+//6. Dizi Elemanlarını Toplayan ve Filtreleme Şartı Ekleyen Metot
+//Soru: int türünde bir dizi ve bir filtre değeri (int) alan bir metot yazın. Bu metot, filtre değerinden büyük
+//olan tüm elemanları toplasın ve toplamı döndürsün.
+//İpucu: int türünde bir metot tanımlayıp foreach döngüsü ile filtreyi uygulayarak toplamı hesaplayabilirsiniz.
+
+//7. Seçmeli (Optional) Parametre ile Belirli Yaştan Sonraki Yılları Sayma
+//Soru: Bir yaş değeri alan bir metot yazın. Eğer yaş belirtilmezse varsayılan olarak 18 olsun ve metot, verilen
+//yaşın 18’den ne kadar fazla olduğunu döndürsün.
+//İpucu: int türünde bir metot tanımlayıp varsayılan parametre kullanarak yaşı hesaplayabilirsiniz.
+
+//8. Geriye Koleksiyon Döndüren ve Veriyi Filtreleyen Metot
+//Soru: string türünde bir dizi alan bir metot yazın. Bu metot, sadece uzunluğu 5 karakterden büyük olan elemanları
+//içeren bir List<string> döndürsün.
+//İpucu: List<string> türünde bir metot tanımlayarak döngü ile filtreleme yapabilirsiniz.
+namespace _4.Hafta
+{
+    internal class Program
+    {
+        //1.Matematiksel Hesaplama Yapan Parametresiz ve Geriye Değer Döndüren Metot
+        public static double ücgenalan()
+        {
+            Console.WriteLine("Üçgenin taban uzunluğunu girin: ");
+            double taban = double.Parse(Console.ReadLine());
+            Console.WriteLine("Üçgenin yüksekliğini girin: ");
+            double yükseklik = double.Parse(Console.ReadLine());
+            double alan = taban * yükseklik / 2;
+            return alan;
+        }
+        //2. Dizideki En Büyük Değeri Bulan Parametreli ve Geriye Değer Döndüren Metot
+        public static int enbüyük(int[] dizi)
+        {
+            int EnBüyük = dizi[0];
+            foreach (int sayi in dizi)
+            {
+                if (sayi > EnBüyük)
+                {
+                    EnBüyük = sayi;
+                }
+            }
+            return EnBüyük;
+        }
+        //3. Aşırı Yüklenmiş (Overloaded) Metot ile Farklı Türdeki Verilerin Toplamını Bulma
+        public static int sayilartoplam(int a, int b) 
+        {
+            return a + b;
+        }
+        public static double sayilartoplam(double a, double b)
+        {
+            return a + b;
+        }
+        public static int sayilartoplam(int a, int b, int c)
+        {
+            return a + b + c;
+        }
+        //4. Recursive Metot ile Fibonacci Dizisi Hesaplama
+        public static int Fibonacci(int n)
+        {
+            if (n == 0) 
+                return 0;
+            if (n == 1) 
+                return 1;
+            return Fibonacci(n - 1) + Fibonacci(n - 2);
+        }
+        //5. Params ile Sınırsız Sayıda Parametre Alarak Ortalama Hesaplama
+        public static double OrtalamaHesapla(params double[] sayilar)
+        {
+            double toplam = 0;
+            foreach (double sayi in sayilar)
+            {
+                toplam += sayi;
+            }
+            double ortalama = toplam / sayilar.Length;
+            return ortalama;
+        }
+        //6. Dizi Elemanlarını Toplayan ve Filtreleme Şartı Ekleyen Metot
+        public static int FiltreliToplam(int[] dizi, int filtreDegeri)
+        {
+            int toplam = 0;
+            foreach (int sayi in dizi)
+            {
+                if (sayi > filtreDegeri)
+                {
+                    toplam += sayi;
+                }
+            }
+            return toplam;
+        }
+        //7. Seçmeli (Optional) Parametre ile Belirli Yaştan Sonraki Yılları Sayma
+        public static int YasFarki(int yas = 18)
+        {
+            return yas > 18 ? yas - 18 : 0;
+        }
+        //8. Geriye Koleksiyon Döndüren ve Veriyi Filtreleyen Metot
+        public static List<string> UzunKelimeFiltrele(string[] dizi)
+        {
+            List<string> uzunKelimeler = new List<string>();
+            foreach (string kelime in dizi)
+            {
+                if (kelime.Length > 5)
+                {
+                    uzunKelimeler.Add(kelime);
+                }
+            }
+            return uzunKelimeler;
+        }
+        static void Main(string[] args)
+        {
+            //1.Matematiksel Hesaplama Yapan Parametresiz ve Geriye Değer Döndüren Metot
+            double alan = ücgenalan();
+            Console.WriteLine("Alan " + alan);
+
+            //2. Dizideki En Büyük Değeri Bulan Parametreli ve Geriye Değer Döndüren Metot
+            int[] sayilar1 = {15, 42, 27, 3, 102, 42};
+            int enBuyuk = enbüyük(sayilar1);
+            Console.WriteLine("Dizideki en büyük sayı: " + enBuyuk);
+
+            //3. Aşırı Yüklenmiş (Overloaded) Metot ile Farklı Türdeki Verilerin Toplamını Bulma
+            int intToplam = sayilartoplam(2, 8);
+            Console.WriteLine("İki int sayının toplamı: " + intToplam);
+            double doubleToplam = sayilartoplam(42.2, 18.5);
+            Console.WriteLine("İki int sayının toplamı: " + doubleToplam);
+            int üçintToplam = sayilartoplam(1, 3, 5);
+            Console.WriteLine("İki int sayının toplamı: " + üçintToplam);
+
+            //4. Recursive Metot ile Fibonacci Dizisi Hesaplama
+            Console.Write("Fibonacci dizisinde kaçıncı sayıyı istiyorsunuz? ");
+            int n = int.Parse(Console.ReadLine());
+            int sonuc = Fibonacci(n);
+            Console.WriteLine($"{n}. Fibonacci sayısı: " + sonuc);
+
+            //5. Params ile Sınırsız Sayıda Parametre Alarak Ortalama Hesaplama
+            double ortalama1 = OrtalamaHesapla(10.5, 20.2, 30.1);
+            Console.WriteLine("Ortalama: " + ortalama1);
+            double ortalama2 = OrtalamaHesapla(5.5, 15.0, 25.0, 35.0);
+            Console.WriteLine("Ortalama: " + ortalama2);
+            double ortalama3 = OrtalamaHesapla(10.0);
+            Console.WriteLine("Ortalama: " + ortalama3);
+
+            //6. Dizi Elemanlarını Toplayan ve Filtreleme Şartı Ekleyen Metot
+            int[] sayilar2 = { 10, 25, 30, 5, 40, 15 };
+            int filtre = 20;
+
+            int toplam = FiltreliToplam(sayilar2, filtre);
+            Console.WriteLine($"Filtre ({filtre}) değerinden büyük elemanların toplamı: {toplam}");
+
+            //7. Seçmeli (Optional) Parametre ile Belirli Yaştan Sonraki Yılları Sayma
+            int fark1 = YasFarki(25);
+            Console.WriteLine("Yaş 25 ise, 18'den fazla olan yıl sayısı: " + fark1);
+            int fark2 = YasFarki();
+            Console.WriteLine("Yaş belirtilmezse (varsayılan 18), 18'den fazla olan yıl sayısı: " + fark2);
+
+            //8. Geriye Koleksiyon Döndüren ve Veriyi Filtreleyen Metot
+            string[] kelimeler = { "elma", "armut", "portakal", "muz", "kavun", "karpuz" };
+            List<string> sonuc1 = UzunKelimeFiltrele(kelimeler);
+            Console.WriteLine("5 karakterden uzun kelimeler:");
+            foreach (string kelime in sonuc1)
+            {
+                Console.WriteLine(kelime);
+            }
+        }
+    }
+}
