@@ -1,0 +1,14 @@
+C:\Users\CASPER\OneDrive\Masaüstü\proje1\proje1\bin\Debug\net8.0\proje1.exe
+C:\Users\CASPER\OneDrive\Masaüstü\proje1\proje1\bin\Debug\net8.0\proje1.deps.json
+C:\Users\CASPER\OneDrive\Masaüstü\proje1\proje1\bin\Debug\net8.0\proje1.runtimeconfig.json
+C:\Users\CASPER\OneDrive\Masaüstü\proje1\proje1\bin\Debug\net8.0\proje1.dll
+C:\Users\CASPER\OneDrive\Masaüstü\proje1\proje1\bin\Debug\net8.0\proje1.pdb
+C:\Users\CASPER\OneDrive\Masaüstü\proje1\proje1\obj\Debug\net8.0\proje1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\CASPER\OneDrive\Masaüstü\proje1\proje1\obj\Debug\net8.0\proje1.AssemblyInfoInputs.cache
+C:\Users\CASPER\OneDrive\Masaüstü\proje1\proje1\obj\Debug\net8.0\proje1.AssemblyInfo.cs
+C:\Users\CASPER\OneDrive\Masaüstü\proje1\proje1\obj\Debug\net8.0\proje1.csproj.CoreCompileInputs.cache
+C:\Users\CASPER\OneDrive\Masaüstü\proje1\proje1\obj\Debug\net8.0\proje1.dll
+C:\Users\CASPER\OneDrive\Masaüstü\proje1\proje1\obj\Debug\net8.0\refint\proje1.dll
+C:\Users\CASPER\OneDrive\Masaüstü\proje1\proje1\obj\Debug\net8.0\proje1.pdb
+C:\Users\CASPER\OneDrive\Masaüstü\proje1\proje1\obj\Debug\net8.0\proje1.genruntimeconfig.cache
+C:\Users\CASPER\OneDrive\Masaüstü\proje1\proje1\obj\Debug\net8.0\ref\proje1.dll
